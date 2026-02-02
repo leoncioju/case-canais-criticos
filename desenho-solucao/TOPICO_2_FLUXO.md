@@ -46,11 +46,9 @@ Um dashboard centralizado mostra a saúde do sistema com:
 
 - **Gráfico de classificações** - Quantas reclamações foram processadas por método (regras vs ML)
 - **Taxa de revisão** - Percentual visual de reclamações que precisam revisão
-- **Latência** - Percentis P50, P95 e P99 de tempo de processamento
+- **Latência** 
 - **Taxa de erros** - Total de erros e distribuição por tipo
-- **Categorias mais frequentes** - Quais categorias aparecem mais
-- **Distribuição de latência** - Heatmap mostrando padrão de tempo de resposta
-- **Status de saúde** - Indicador de disponibilidade do serviço
+- **Categorias mais frequentes** 
 
 ### Rastreamento Distribuído
 
@@ -133,22 +131,3 @@ Para aumentar 10x a capacidade, basta:
 **Custo adicional:** +$50-70/mês para essa escalabilidade
 
 ---
-
-## 🎯 SLA e Garantias
-
-| Métrica | Target | Monitoramento |
-|---------|--------|---------------|
-| **Disponibilidade** | 99.9% | CloudWatch Alarms |
-| **Latência p99** | <2s | X-Ray |
-| **Taxa de erro** | <0.1% | CloudWatch Metrics |
-| **Processamento** | <5min | Custom metric |
-| **Deadline** | 10 dias | Lambda monitor |
-
----
-
-## 📚 Referências
-
-- **Diagrama:** `diagrams/architecture.drawio`
-- **Fluxos detalhados:** `docs/FLOWS.md`
-- **Monitoramento:** `docs/ARCHITECTURE.md` (seção Observabilidade)
-- **Código:** `src/handler.py`
