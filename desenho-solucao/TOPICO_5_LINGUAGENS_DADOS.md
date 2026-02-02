@@ -9,10 +9,9 @@
 ### Python 3.11 (Principal)
 
 **Por quê?**
-✅ Runtime oficial do Lambda  
+
 ✅ Ecossistema ML maduro (boto3, comprehend)  
 ✅ Fácil manutenção  
-✅ Type hints (Python 3.11+)  
 ✅ Performance adequada  
 
 **Quando usar:**
