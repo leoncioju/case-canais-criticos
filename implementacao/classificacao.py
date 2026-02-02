@@ -23,7 +23,7 @@ def classificar_reclamacao(
     Returns:
         Dict com:
             - categorias: lista de categorias encontradas
-            - detalhes: dict com as palavras-chave que triggerou cada categoria
+            - detalhes: dict com as palavras-chave que triggou cada categoria
     """
     texto_normalizado = normalizar_texto(texto)
     categorias_encontradas = []
