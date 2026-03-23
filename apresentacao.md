@@ -16,7 +16,6 @@
 8. [Tópico 5 — Linguagens e Banco de Dados](#8-tópico-5--linguagens-e-banco-de-dados)
 9. [Tópico 6 — Como a IA Acelera o Processo](#9-tópico-6--como-a-ia-acelera-o-processo)
 10. [Estrutura do Repositório](#10-estrutura-do-repositório)
-11. [Como Rodar os Testes](#11-como-rodar-os-testes)
 
 ---
 
