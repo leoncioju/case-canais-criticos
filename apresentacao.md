@@ -7,7 +7,7 @@
 ## 📌 Índice
 
 1. [O Problema](#1-o-problema)
-2. [A Solução em Uma Frase](#2-a-solução-em-uma-frase)
+2. [A Solução](#2-a-solução)
 3. [Arquitetura Geral](#3-arquitetura-geral)
 4. [Tópico 1 — Classificação Automática (código)](#4-tópico-1--classificação-automática-código)
 5. [Tópico 2 — Fluxo, Observabilidade e Gargalos](#5-tópico-2--fluxo-observabilidade-e-gargalos)
@@ -38,7 +38,7 @@ Essas reclamações precisam ser:
 
 ---
 
-## 2. A Solução em Uma Frase
+## 2. A Solução
 
 > Classificador híbrido serverless (regras + ML) sobre arquitetura event-driven na AWS, com observabilidade centralizada no Datadog e rastreabilidade completa no DynamoDB.
 
