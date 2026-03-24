@@ -74,6 +74,9 @@ Essas reclamações precisam ser:
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_1_CLASSIFICACAO.md)
 
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
+
 ### Abordagem: Classificação por Palavras-Chave com Normalização
 
 O classificador funciona em três passos:
@@ -119,11 +122,16 @@ Retorna **todas** as categorias aplicáveis com detalhe de quais palavras fizera
 | `implementacao/classificacao.py` | Função principal `classificar_reclamacao()` |
 | `implementacao/test_classificacao.py` | Testes unitários com pytest |
 
+</details>
+
 ---
 
 ## 5. Tópico 2 — Fluxo, Observabilidade e Gargalos
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_2_FLUXO.md)
+
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 ### Observabilidade com Datadog
 
@@ -164,11 +172,16 @@ Cada reclamação gera logs estruturados com:
 | 10.000 req/dia | 50 concurrent | 3 units | On-demand (auto) |
 | Custo adicional para 10x | — | — | +$50-70/mês |
 
+</details>
+
 ---
 
 ## 6. Tópico 3 — Arquitetura de Software
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_3_ARQUITETURA.md)
+
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 ### Clean Architecture + Event-Driven
 
@@ -211,11 +224,16 @@ A solução usa **Clean Architecture** com processamento orientado a eventos, or
 | Rastreabilidade e SLA | Estados e timestamps persistidos no DynamoDB |
 | Integração com legados | API REST desacoplada do core |
 
+</details>
+
 ---
 
 ## 7. Tópico 4 — Exemplo de Componente em Camadas
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_4_COMPONENTES.md)
+
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 O componente detalhado é o **HybridClassifier**, que demonstra a separação de responsabilidades na prática:
 
@@ -228,11 +246,16 @@ Presentation Layer  → Lambda handler (entry point)
 
 O código de implementação está em `implementacao/` com testes em `implementacao/test_classificacao.py`.
 
+</details>
+
 ---
 
 ## 8. Tópico 5 — Linguagens e Banco de Dados
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_5_LINGUAGENS_DADOS.md)
+
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 ### Linguagem: Python 3.11
 
@@ -265,11 +288,16 @@ Query 3: Histórico do cliente (GSI por customer_id)
 - Auditoria e versionamento das regras
 - Possibilita A/B testing de estratégias de classificação
 
+</details>
+
 ---
 
 ## 9. Tópico 6 — Como a IA Acelera o Processo
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_6_IA.md)
+
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 ### Onde a IA entra na solução
 
@@ -286,6 +314,8 @@ Query 3: Histórico do cliente (GSI por customer_id)
 - **Embedding similarity** — classificar reclamações sem palavras-chave exatas
 - **Fine-tuning** — treinar modelo próprio com histórico de reclamações classificadas manualmente
 - **Análise de sentimento** — priorizar automaticamente reclamações com tom mais crítico
+
+</details>
 
 ---
 
