@@ -71,11 +71,12 @@ Essas reclamações precisam ser:
 ---
 
 ## 4. Tópico 1 — Classificação Automática (código)
+<details>
+<summary>Expandir/Recolher conteúdo do tópico</summary>
 
 📄 [Ver documento completo](desenho-solucao/TOPICO_1_CLASSIFICACAO.md)
 
-<details>
-<summary>Expandir/Recolher conteúdo do tópico</summary>
+
 
 ### Abordagem: Classificação por Palavras-Chave com Normalização
 
@@ -128,10 +129,12 @@ Retorna **todas** as categorias aplicáveis com detalhe de quais palavras fizera
 
 ## 5. Tópico 2 — Fluxo, Observabilidade e Gargalos
 
-📄 [Ver documento completo](desenho-solucao/TOPICO_2_FLUXO.md)
-
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
+
+📄 [Ver documento completo](desenho-solucao/TOPICO_2_FLUXO.md)
+
+
 
 ### Observabilidade com Datadog
 
@@ -143,10 +146,8 @@ Cada reclamação gera logs estruturados com:
 | Alarme | Condição |
 |---|---|
 | Taxa alta de revisão manual | > 10% em 5 min |
-| Latência elevada | p99 > 2 segundos |
 | Erros em Lambda | > 5 erros/min |
 | Dead Letter Queue com msgs | > 10 mensagens acumuladas |
-| DynamoDB Throttling | Qualquer throttle detectado |
 
 ### Como evitar gargalos
 
@@ -161,16 +162,8 @@ Cada reclamação gera logs estruturados com:
 
 - Mensagens com falha: **3 retentativas** com backoff
 - Após 3 falhas: vai para **Dead Letter Queue** para análise manual
-- Erros temporários (timeout) → retry automático
-- Erros permanentes (dados inválidos) → log + continua processamento
 
-### Escalabilidade
 
-| Cenário | Lambda | Comprehend | DynamoDB |
-|---|---|---|---|
-| 1.000 req/dia (atual) | 10 concurrent (~2%) | 1 unit (~20%) | On-demand |
-| 10.000 req/dia | 50 concurrent | 3 units | On-demand (auto) |
-| Custo adicional para 10x | — | — | +$50-70/mês |
 
 </details>
 
@@ -178,10 +171,12 @@ Cada reclamação gera logs estruturados com:
 
 ## 6. Tópico 3 — Arquitetura de Software
 
-📄 [Ver documento completo](desenho-solucao/TOPICO_3_ARQUITETURA.md)
-
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
+
+📄 [Ver documento completo](desenho-solucao/TOPICO_3_ARQUITETURA.md)
+
+
 
 ### Clean Architecture + Event-Driven
 
@@ -230,19 +225,24 @@ A solução usa **Clean Architecture** com processamento orientado a eventos, or
 
 ## 7. Tópico 4 — Exemplo de Componente em Camadas
 
-📄 [Ver documento completo](desenho-solucao/TOPICO_4_COMPONENTES.md)
-
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
 
-O componente detalhado é o **HybridClassifier**, que demonstra a separação de responsabilidades na prática:
+📄 [Ver documento completo](desenho-solucao/TOPICO_4_COMPONENTES.md)
 
-```
-Domain Layer        → Entidades: Reclamação, Categoria, Resultado
-Use Case Layer      → ClassificarReclamacaoUseCase
-Infrastructure Layer→ RuleClassifier, MLClassifier (Comprehend), DynamoRepository
-Presentation Layer  → Lambda handler (entry point)
-```
+### O que esse componente faz
+
+A Lambda **Classificadora** recebe uma reclamação, tenta classificar por regras e, quando necessário, usa IA como fallback.
+
+### Separação por camadas (quem faz o quê)
+
+| Camada | Responsabilidade | Exemplo |
+|---|---|---|
+| **Domain Layer** | Define os conceitos do negócio | Reclamação, Categoria, Resultado |
+| **Use Case Layer** | Orquestra o fluxo de classificação | `ClassificarReclamacaoUseCase` |
+| **Infrastructure Layer** | Implementa integrações técnicas | `RuleClassifier`, `MLClassifier`, `DynamoRepository` |
+| **Presentation Layer** | Recebe o evento de entrada e devolve resposta | Lambda handler |
+
 
 O código de implementação está em `implementacao/` com testes em `implementacao/test_classificacao.py`.
 
@@ -252,10 +252,12 @@ O código de implementação está em `implementacao/` com testes em `implementa
 
 ## 8. Tópico 5 — Linguagens e Banco de Dados
 
-📄 [Ver documento completo](desenho-solucao/TOPICO_5_LINGUAGENS_DADOS.md)
-
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
+
+📄 [Ver documento completo](desenho-solucao/TOPICO_5_LINGUAGENS_DADOS.md)
+
+
 
 ### Linguagem: Python 3.11
 
@@ -294,10 +296,12 @@ Query 3: Histórico do cliente (GSI por customer_id)
 
 ## 9. Tópico 6 — Como a IA Acelera o Processo
 
-📄 [Ver documento completo](desenho-solucao/TOPICO_6_IA.md)
-
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
+
+📄 [Ver documento completo](desenho-solucao/TOPICO_6_IA.md)
+
+
 
 ### Onde a IA entra na solução
 
