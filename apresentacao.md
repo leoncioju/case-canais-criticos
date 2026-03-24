@@ -244,8 +244,6 @@ A Lambda **Classificadora** recebe uma reclamação, tenta classificar por regra
 | **Presentation Layer** | Recebe o evento de entrada e devolve resposta | Lambda handler |
 
 
-O código de implementação está em `implementacao/` com testes em `implementacao/test_classificacao.py`.
-
 </details>
 
 ---
@@ -259,7 +257,7 @@ O código de implementação está em `implementacao/` com testes em `implementa
 
 
 
-### Linguagem: Python 3.11
+### Linguagem: Python
 
 - Ecossistema ML maduro (`boto3`, `comprehend`)
 - Fácil manutenção e leitura
@@ -273,22 +271,12 @@ O código de implementação está em `implementacao/` com testes em `implementa
 - Pay-per-request
 - Integração nativa com Lambda
 
-Schema principal com GSIs para os access patterns mais críticos:
-```
-Query 1: Buscar reclamação por ID
-Query 2: Reclamações próximas do prazo (GSI por status + deadline)
-Query 3: Histórico do cliente (GSI por customer_id)
-```
-
-**S3 (documentos/anexos)**
-- Armazenamento ilimitado de PDFs e imagens
-- Lifecycle policies, versionamento, durabilidade 99.999999999%
-- Custo: $0,023/GB
-
 **DynamoDB separado para Regras**
 - Atualização de regras de negócio **sem redeploy** da Lambda
 - Auditoria e versionamento das regras
 - Possibilita A/B testing de estratégias de classificação
+
+
 
 </details>
 
@@ -309,8 +297,6 @@ Query 3: Histórico do cliente (GSI por customer_id)
 |---|---|---|
 | OCR de documentos físicos | **AWS Textract** | Extrai texto de PDFs e imagens digitalizadas |
 | Classificação ambígua | **AWS Comprehend** | Fallback quando regras não têm match suficiente |
-| Detecção de urgência | **Comprehend (Sentiment)** | Identifica reclamações com linguagem de alta urgência |
-| Alerta de SLA | Regra sobre timestamp + **evento agendado** | Identifica casos próximos do vencimento automaticamente |
 
 ### Melhorias futuras com IA
 
@@ -320,38 +306,5 @@ Query 3: Histórico do cliente (GSI por customer_id)
 - **Análise de sentimento** — priorizar automaticamente reclamações com tom mais crítico
 
 </details>
-
----
-
-## 10. Estrutura do Repositório
-
-```
-case-canais-criticos/
-│
-├── implementacao/
-│   ├── classificacao.py          # Classificador híbrido (lógica principal)
-│   └── test_classificacao.py     # Testes com pytest
-│
-├── desenho-solucao/
-│   ├── arq.png                   # Diagrama de arquitetura
-│   ├── TOPICO_1_CLASSIFICACAO.md # Detalhamento do classificador
-│   ├── TOPICO_2_FLUXO.md         # Fluxo, observabilidade, gargalos
-│   ├── TOPICO_3_ARQUITETURA.md   # Clean Architecture + justificativas
-│   ├── TOPICO_4_COMPONENTES.md   # HybridClassifier em camadas
-│   ├── TOPICO_5_LINGUAGENS_DADOS.md  # Python + DynamoDB + S3
-│   └── TOPICO_6_IA.md            # Textract, Comprehend e melhorias futuras
-│
-└── APRESENTACAO.md               # ← você está aqui
-```
----
-
-## Critérios Técnicos Atendidos
-
-| Critério | Como foi atendido |
-|---|---|
-| **Organização do código e fluxo** | Clean Architecture em camadas, SQS desacoplando ingestão/processamento |
-| **Tratamento de casos ambíguos** | Classificador híbrido: regras → ML → revisão humana |
-| **Boas práticas** | pytest, word boundaries com regex, cache de regras, DLQ, retry |
-| **Clareza e documentação** | 6 tópicos documentados individualmente + diagrama de arquitetura |
 
 ---
