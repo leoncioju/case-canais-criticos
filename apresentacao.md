@@ -15,8 +15,6 @@
 7. [Tópico 4 — Exemplo de Componente em Camadas](#tópico-4--exemplo-de-componente-em-camadas)
 8. [Tópico 5 — Linguagens e Banco de Dados](#tópico-5--linguagens-e-banco-de-dados)
 9. [Tópico 6 — Como a IA Acelera o Processo](#tópico-6--como-a-ia-acelera-o-processo)
-10. [Estrutura do Repositório](#estrutura-do-repositório)
-
 ---
 
 ## O Problema
