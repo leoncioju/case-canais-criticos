@@ -6,20 +6,20 @@
 
 ## 📌 Índice
 
-1. [O Problema](#1-o-problema)
-2. [A Solução](#2-a-solução)
-3. [Arquitetura Geral](#3-arquitetura-geral)
-4. [Tópico 1 — Classificação Automática (código)](#4-tópico-1--classificação-automática-código)
-5. [Tópico 2 — Fluxo, Observabilidade e Gargalos](#5-tópico-2--fluxo-observabilidade-e-gargalos)
-6. [Tópico 3 — Arquitetura de Software](#6-tópico-3--arquitetura-de-software)
-7. [Tópico 4 — Exemplo de Componente em Camadas](#7-tópico-4--exemplo-de-componente-em-camadas)
-8. [Tópico 5 — Linguagens e Banco de Dados](#8-tópico-5--linguagens-e-banco-de-dados)
-9. [Tópico 6 — Como a IA Acelera o Processo](#9-tópico-6--como-a-ia-acelera-o-processo)
-10. [Estrutura do Repositório](#10-estrutura-do-repositório)
+1. [O Problema](#o-problema)
+2. [A Solução](#a-solução)
+3. [Arquitetura Geral](#arquitetura-geral)
+4. [Tópico 1 — Classificação Automática (código)](#tópico-1--classificação-automática-código)
+5. [Tópico 2 — Fluxo, Observabilidade e Gargalos](#tópico-2--fluxo-observabilidade-e-gargalos)
+6. [Tópico 3 — Arquitetura de Software](#tópico-3--arquitetura-de-software)
+7. [Tópico 4 — Exemplo de Componente em Camadas](#tópico-4--exemplo-de-componente-em-camadas)
+8. [Tópico 5 — Linguagens e Banco de Dados](#tópico-5--linguagens-e-banco-de-dados)
+9. [Tópico 6 — Como a IA Acelera o Processo](#tópico-6--como-a-ia-acelera-o-processo)
+10. [Estrutura do Repositório](#estrutura-do-repositório)
 
 ---
 
-## 1. O Problema
+## O Problema
 
 O banco recebe reclamações por dois canais distintos:
 
@@ -38,13 +38,13 @@ Essas reclamações precisam ser:
 
 ---
 
-## 2. A Solução
+## A Solução
 
 > Classificador híbrido serverless (regras + ML) sobre arquitetura event-driven na AWS, com observabilidade centralizada no Datadog e rastreabilidade completa no DynamoDB.
 
 ---
 
-## 3. Arquitetura Geral
+## Arquitetura Geral
 
 ![Arquitetura da Solução](desenho-solucao/arq.png)
 
@@ -70,7 +70,7 @@ Essas reclamações precisam ser:
 
 ---
 
-## 4. Tópico 1 — Classificação Automática (código)
+## Tópico 1 — Classificação Automática (código)
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
 
@@ -127,7 +127,7 @@ Retorna **todas** as categorias aplicáveis com detalhe de quais palavras fizera
 
 ---
 
-## 5. Tópico 2 — Fluxo, Observabilidade e Gargalos
+## Tópico 2 — Fluxo, Observabilidade e Gargalos
 
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
@@ -169,7 +169,7 @@ Cada reclamação gera logs estruturados com:
 
 ---
 
-## 6. Tópico 3 — Arquitetura de Software
+## Tópico 3 — Arquitetura de Software
 
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
@@ -223,7 +223,7 @@ A solução usa **Clean Architecture** com processamento orientado a eventos, or
 
 ---
 
-## 7. Tópico 4 — Exemplo de Componente em Camadas
+## Tópico 4 — Exemplo de Componente em Camadas
 
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
@@ -248,7 +248,7 @@ A Lambda **Classificadora** recebe uma reclamação, tenta classificar por regra
 
 ---
 
-## 8. Tópico 5 — Linguagens e Banco de Dados
+## Tópico 5 — Linguagens e Banco de Dados
 
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
@@ -282,7 +282,7 @@ A Lambda **Classificadora** recebe uma reclamação, tenta classificar por regra
 
 ---
 
-## 9. Tópico 6 — Como a IA Acelera o Processo
+## Tópico 6 — Como a IA Acelera o Processo
 
 <details>
 <summary>Expandir/Recolher conteúdo do tópico</summary>
